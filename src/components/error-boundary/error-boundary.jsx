@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ErrorIndicator from '../error-indicator/error-indicator';
 
@@ -11,11 +11,11 @@ export default class ErrorBoundary extends PureComponent {
   state = {hasError: false};
 
   componentDidCatch() {
-    this.setState({hasError: true});
+    this.setState({ hasError: true });
   }
 
   render() {
-    const {hasError} = this.state;
+    const { hasError } = this.state;
 
     if (hasError) {
       return  <ErrorIndicator />;
