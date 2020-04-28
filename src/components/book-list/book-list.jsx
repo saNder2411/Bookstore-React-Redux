@@ -1,6 +1,5 @@
 import React from 'react';
 import BookListItem from '../book-list-item/book-list-item';
-import withBooksData from '../../hocs/with-books-data/with-books-data';
 import './book-list.css';
 
 
@@ -13,4 +12,4 @@ const BookList = ({books}) => {
   );
 };
 
-export default withBooksData(BookList);
+export default BookList;
