@@ -1,15 +1,15 @@
 const Titles = [
   `Production-Ready Microservices`,
   `Release It!`,
-  `Building a StoryBrand: Clarify Your Message So Customers Will Listen`,
-  `Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems`,
+  `Building a StoryBrand`,
+  `Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow`,
   `Automate the Boring Stuff with Python`,
   `Web Design with HTML, CSS, JavaScript and jQuery Set`,
-  `Marketing Made Simple: A Step-by-Step StoryBrand Guide for Any Business`,
-  `Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython`,
-  `Head First Design Patterns: A Brain-Friendly Guide`,
-  `Fluent Python: Clear, Concise, and Effective Programming`,
-  `Effective Python: 90 Specific Ways to Write Better Python`,
+  `Marketing Made Simple`,
+  `Python for Data Analysis`,
+  `Head First Design Patterns`,
+  `Fluent Python`,
+  `Effective Python`,
 ];
 const Authors = [
   `Susan J. Fowler`,

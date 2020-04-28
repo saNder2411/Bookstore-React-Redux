@@ -1,7 +1,9 @@
 .book-list-item {
   display: flex;
-  width: 40%;
+  width: 300px;
   margin: 15px 0;
+  margin-right: 15px;
+  box-shadow: 0 0 5px 1px rgba(235, 193, 58, .2);
 }
 
 .book-list-item .book-cover {
@@ -17,7 +19,6 @@
 .book-list-item .book-details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding-bottom: 10px;
   align-items: flex-start;
 }
@@ -28,5 +29,13 @@
 }
 
 .book-details .book-price {
-  font-size: 1.3rem;
+  font-size: 1rem;
+}
+
+.book-details .book-author {
+  font-size: 1rem;
+}
+
+.book-details button {
+  margin-top: auto;
 }

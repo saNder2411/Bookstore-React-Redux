@@ -2,7 +2,7 @@ import {Titles, Authors, Images} from '../mock/mock';
 
 export default class BookstoreService {
 
-  _countBooks = 11;
+  _countBooks = 5;
 
   _createMockBook = (bookIndex, id) => ({
     id,

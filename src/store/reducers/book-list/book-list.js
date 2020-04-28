@@ -1,13 +1,6 @@
-import ActionTypes from '../action-types/action-types';
+import ActionTypes from '../../action-types/action-types';
 
-const initialState = {
-  books: [],
-  booksLoading: true,
-  booksError: null,
-};
-
-const reducer = (state = initialState, action) => {
-
+const updateBookList = (state, action) => {
   switch (action.type) {
     case ActionTypes.FETCH_BOOKS_REQUEST:
       return {
@@ -31,8 +24,8 @@ const reducer = (state = initialState, action) => {
       };
 
     default:
-      return state;
+      return state.bookList;
   }
 };
 
-export default reducer;
+export default updateBookList;
