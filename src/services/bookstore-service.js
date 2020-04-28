@@ -27,9 +27,16 @@ export default class BookstoreService {
   };
 
   getBooks = async () => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const data = this._createMockBooks(this._countBooks);
-      setTimeout(() => resolve(data), 1700);
+      setTimeout(() => {
+
+        if (Math.random() > 0.75) {
+          return reject(new Error(`Something bad happened`));
+        }
+
+        resolve(data);
+      }, 1000);
     });
   };
 }

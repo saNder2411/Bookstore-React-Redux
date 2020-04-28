@@ -38,4 +38,4 @@ const Images = [
   `https://images-na.ssl-images-amazon.com/images/I/41XiNqkzNyL._SX378_BO1,204,203,200_.jpg`,
 ];
 
-export { Titles, Authors, Images };
+export {Titles, Authors, Images};

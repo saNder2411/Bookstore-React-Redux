@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './shop-header.css';
-import { Link } from 'react-router-dom';
 
-const ShopHeader = ({ numItems, total }) => {
+
+const ShopHeader = ({numItems, total}) => {
   return (
     <header className="shop-header row">
       <h1>
@@ -15,7 +16,7 @@ const ShopHeader = ({ numItems, total }) => {
       <Link to="/cart">
         <div className="shopping-cart" href="/">
           <i className="cart-icon fa fa-shopping-cart" />
-          { numItems } items (${ total })
+          {numItems} items (${total})
         </div>
       </Link>
     </header>

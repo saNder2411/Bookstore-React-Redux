@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookstoreServiceConsumer } from '../../components/bookstore-service-context/bookstore-service-context';
+import {BookstoreServiceConsumer} from '../../components/bookstore-service-context/bookstore-service-context';
 
 const withBookstoreService = (mapMethodsToProps) => (Component) => {
 
@@ -11,7 +11,7 @@ const withBookstoreService = (mapMethodsToProps) => (Component) => {
           (bookstoreService) => {
             const serviceProps = mapMethodsToProps(bookstoreService);
 
-            return <Component { ...props } { ...serviceProps } />;
+            return <Component {...props} {...serviceProps} />;
           }
         }
       </BookstoreServiceConsumer>
