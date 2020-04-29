@@ -13,7 +13,7 @@ export const fetchBooksOld = (dispatch, getBooks) => () => {
     .catch((error) => dispatch(booksHasError(error)));
 };
 
-export const fetchBooks = (getBooks) => (dispatch) => {
+export const fetchBooks = (getBooks) => () => (dispatch) => {
   dispatch(booksRequested());
   getBooks()
     .then((data) => dispatch(booksLoaded(data)))

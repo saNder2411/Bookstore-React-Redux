@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 import withBookstoreService from '../../hocs/with-bookstore-service/with-bookstore-service';
 import {getBooksData, getBooksLoading, getBooksError} from '../../store/reducers/book-list-reducer/book-list-selectors';
@@ -36,10 +37,10 @@ const mapStateToProps = (state) => ({
   booksError: getBooksError(state),
 });
 
-const mapDispatchToProps = (dispatch, {getBooks}) => ({
-  fetchBooks: () => dispatch(fetchBooks(getBooks)),
-  onAddedToCart: (id) => dispatch(bookAddedToCart(id)),
-});
+const mapDispatchToProps = (dispatch, {getBooks}) => bindActionCreators({
+  fetchBooks: fetchBooks(getBooks),
+  onAddedToCart: bookAddedToCart,
+}, dispatch);
 
 export default compose(
   withBookstoreService(mapServiceMethodsToProps),
