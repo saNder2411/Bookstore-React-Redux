@@ -2,6 +2,7 @@ import {createStore, compose, applyMiddleware} from 'redux';
 import reducer from './reducers/reducer';
 import thunkMiddleware from 'redux-thunk';
 
+
 const logMiddleware = ({getState}) => (nextDispatch) => (action) => {
   console.log(action.type, getState());
 

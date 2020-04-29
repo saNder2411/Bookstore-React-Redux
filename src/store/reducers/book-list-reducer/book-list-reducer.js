@@ -1,5 +1,6 @@
 import ActionTypes from '../../action-types/action-types';
 
+
 const updateBookList = (state, action) => {
   switch (action.type) {
     case ActionTypes.FETCH_BOOKS_REQUEST:

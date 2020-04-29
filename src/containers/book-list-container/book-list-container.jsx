@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -7,26 +7,19 @@ import {getBooksData, getBooksLoading, getBooksError} from '../../store/reducers
 import {fetchBooks} from '../../store/actions/book-list-actions/book-list-actions';
 import {bookAddedToCart} from '../../store/actions/shopping-cart-actions/shopping-cart-actions';
 
-import Spinner from '../../components/spinner/spinner';
-import ErrorIndicator from '../../components/error-indicator/error-indicator';
 import BookList from '../../components/book-list/book-list';
-import {compose} from '../../utils/utils';
+
+import {compose, getContent} from '../../utils/utils';
+
 
 const BookListContainer = ({fetchBooks, onAddedToCart, booksLoading, booksError, books}) => {
 
-  useEffect(
-    () => {
-      fetchBooks();
-    },
-    [fetchBooks]
-  );
+  useEffect(() => fetchBooks(), [fetchBooks]);
 
-  const hasData = !(booksLoading && booksError);
-  const spinner = booksLoading ? <Spinner/> : null;
-  const errorMessage = booksError ? <ErrorIndicator /> : null;
-  const content = hasData ? <BookList books={books} onAddedToCart={onAddedToCart} /> : null;
+  const bookListProps = {books, onAddedToCart};
+  const contentT = getContent(booksLoading, booksError, BookList, bookListProps);
 
-  return spinner || errorMessage || content;
+  return contentT;
 };
 
 const mapServiceMethodsToProps = ({getBooks}) => ({getBooks});
@@ -37,10 +30,13 @@ const mapStateToProps = (state) => ({
   booksError: getBooksError(state),
 });
 
-const mapDispatchToProps = (dispatch, {getBooks}) => bindActionCreators({
-  fetchBooks: fetchBooks(getBooks),
-  onAddedToCart: bookAddedToCart,
-}, dispatch);
+const mapDispatchToProps = (dispatch, {getBooks}) => {
+
+  return bindActionCreators({
+    fetchBooks: fetchBooks(getBooks),
+    onAddedToCart: bookAddedToCart,
+  }, dispatch);
+};
 
 export default compose(
   withBookstoreService(mapServiceMethodsToProps),

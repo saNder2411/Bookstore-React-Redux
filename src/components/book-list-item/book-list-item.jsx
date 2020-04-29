@@ -1,6 +1,7 @@
 import React from 'react';
 import './book-list-item.css';
 
+
 const BookListItem = ({book, onAddedToCart}) => {
   const {title, author, price, coverImage} = book;
 
@@ -10,9 +11,9 @@ const BookListItem = ({book, onAddedToCart}) => {
         <img src={coverImage} alt="cover" />
       </div>
       <div className="book-details">
-        <a className="book-title" href="/">
+        <h6 className="book-title">
           {title}
-        </a>
+        </h6>
         <div className="book-author">{author}</div>
         <div className="book-price">${price}</div>
         <button

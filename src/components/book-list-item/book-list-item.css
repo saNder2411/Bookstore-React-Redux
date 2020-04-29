@@ -1,10 +1,10 @@
 .book-list-item {
   display: flex;
-  /* flex-direction: column; */
   width: 300px;
   margin: 15px 0;
   margin-right: 15px;
   box-shadow: 0 0 5px 1px rgba(235, 193, 58, .2);
+  background-color: rgba(158, 138, 78, 0.1);
 }
 
 .book-list-item .book-cover {
@@ -25,7 +25,7 @@
 }
 
 .book-details .book-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .book-details .book-author {
-  font-size: 1rem;
+  font-size: .8rem;
 }
 
 .book-details button {

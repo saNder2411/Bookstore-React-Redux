@@ -1,5 +1,6 @@
 import ActionTypes from '../../action-types/action-types';
 
+
 const updateCartItems = (cartItems, item, idx) => {
 
   if (item.count === 0) {
@@ -36,16 +37,27 @@ const updateCartItem = (book, item = {}, quantity) => {
   };
 };
 
+const updateOrderTotal = (cartItems) => {
+  let countTotal = 0;
+  cartItems.forEach(({total}) => {
+    countTotal += total;
+  });
+
+  return countTotal;
+};
+
 const updateOrder = (state, bookId, quantity) => {
   const {bookList: {books}, shoppingCart: {cartItems}} = state;
   const book = books.find(({id}) => id === bookId);
   const itemIndex = cartItems.findIndex(({id}) => id === bookId);
   const item = cartItems[itemIndex];
   const newItem = updateCartItem(book, item, quantity);
+  const newCartItems = updateCartItems(cartItems, newItem, itemIndex);
+  const newOrderTotal = updateOrderTotal(newCartItems)
 
   return {
-    cartItems: updateCartItems(cartItems, newItem, itemIndex),
-    orderTotal: 0,
+    cartItems: newCartItems,
+    orderTotal: newOrderTotal,
   };
 };
 

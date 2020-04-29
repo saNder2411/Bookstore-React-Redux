@@ -1,8 +1,9 @@
 import {Titles, Authors, Images} from '../mock/mock';
 
+
 export default class BookstoreService {
 
-  _countBooks = 5;
+  _countBooks = 15;
 
   _createMockBook = (bookIndex, id) => ({
     id,
@@ -31,12 +32,12 @@ export default class BookstoreService {
       const data = this._createMockBooks(this._countBooks);
       setTimeout(() => {
 
-        if (Math.random() > 0.80) {
+        if (Math.random() > 0.95) {
           return reject(new Error(`Something bad happened`));
         }
 
         resolve(data);
-      }, 1000);
+      }, 500);
     });
   };
 }

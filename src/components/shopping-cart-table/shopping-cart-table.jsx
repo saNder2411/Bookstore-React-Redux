@@ -1,12 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {getCartItems, getOrderTotal} from '../../store/reducers/shopping-cart-reducer/shopping-cart-selectors';
-import {bookAddedToCart, bookRemoveFromCart, allBooksRemoveFromCart} from '../../store/actions/shopping-cart-actions/shopping-cart-actions';
 import './shopping-cart-table.css';
 
 
 const ShoppingCartTable = ({cartItems, orderTotal, onIncrease, onDecrease, onDelete}) => {
-
   const renderRow = (item, i) => {
     const {id, title, count, total} = item;
 
@@ -60,15 +56,4 @@ const ShoppingCartTable = ({cartItems, orderTotal, onIncrease, onDecrease, onDel
   );
 };
 
-const mapStateToProps = (state) => ({
-  cartItems: getCartItems(state),
-  orderTotal: getOrderTotal(state),
-});
-
-const mapDispatchToProps = {
-  onDecrease: bookRemoveFromCart,
-  onIncrease: bookAddedToCart,
-  onDelete: allBooksRemoveFromCart,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartTable);
+export default ShoppingCartTable;

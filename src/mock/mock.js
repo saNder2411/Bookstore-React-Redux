@@ -11,6 +11,7 @@ const Titles = [
   `Fluent Python`,
   `Effective Python`,
 ];
+
 const Authors = [
   `Susan J. Fowler`,
   `Michael T. Nygard`,
@@ -24,6 +25,7 @@ const Authors = [
   `Luciano Ramalho`,
   `Brett Slatkin`,
 ];
+
 const Images = [
   `https://images-na.ssl-images-amazon.com/images/I/41yJ75gpV-L._SX381_BO1,204,203,200_.jpg`,
   `https://images-na.ssl-images-amazon.com/images/I/414CRjLjwgL._SX403_BO1,204,203,200_.jpg`,
