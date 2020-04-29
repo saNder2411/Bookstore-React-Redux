@@ -1,49 +1,26 @@
-import {createStore, compose} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import reducer from './reducers/reducer';
 
-const logMiddleware = (store) => (dispatch) => (action) => {
-  console.log(action.type, store.getState());
+const logMiddleware = ({getState}) => (nextDispatch) => (action) => {
+  console.log(action.type, getState());
 
-  return dispatch(action);
+  return nextDispatch(action);
 }
 
-const stringMiddleware = (store) => (dispatch) => (action) => {
+const stringMiddleware = () => (nextDispatch) => (action) => {
 
   if (typeof action === `string`) {
-    return dispatch({type: action});
+    return nextDispatch({type: action});
   }
 
-  return dispatch(action);
+  return nextDispatch(action);
 }
 
-const logEnhancer = (createStore) => (...args) => {
-  const store = createStore(...args);
-  const originalDispatch = store.dispatch;
-  store.dispatch = (action) => {
-    console.log(action.type);
 
-    return originalDispatch(action);
-  }
-
-  return store;
-};
-
-const stringEnhancer = (createStore) => (...args) => {
-  const store = createStore(...args);
-  const originalDispatch = store.dispatch;
-  store.dispatch = (action) => {
-
-    if (typeof action === `string`) {
-      return originalDispatch({type: action});
-    }
-
-    return originalDispatch(action);
-  }
-
-  return store;
-};
-
-const store = createStore(reducer, compose( stringEnhancer, logEnhancer));
+const store = createStore(reducer, compose(
+  applyMiddleware(stringMiddleware, logMiddleware),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+));
 
 store.dispatch(`HELLO_WORLD`);
 
