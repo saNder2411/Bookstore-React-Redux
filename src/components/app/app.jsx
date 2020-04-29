@@ -5,6 +5,7 @@ import HomePage from '../pages/home-page/home-page';
 import CartPage from '../pages/cart-page/cart-page';
 import './app.css';
 
+
 const App = () => {
 
   return (

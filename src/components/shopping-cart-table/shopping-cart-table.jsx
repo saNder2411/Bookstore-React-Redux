@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getCartItems, getOrderTotal} from '../../store/reducers/shopping-cart/shopping-cart-selectors';
-import {bookAddedToCart, bookRemoveFromCart, allBooksRemoveFromCart} from '../../store/actions/books-actions';
+import {getCartItems, getOrderTotal} from '../../store/reducers/shopping-cart-reducer/shopping-cart-selectors';
+import {bookAddedToCart, bookRemoveFromCart, allBooksRemoveFromCart} from '../../store/actions/shopping-cart-actions/shopping-cart-actions';
 import './shopping-cart-table.css';
 
 

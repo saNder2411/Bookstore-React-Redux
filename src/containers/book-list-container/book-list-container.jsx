@@ -2,8 +2,9 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 
 import withBookstoreService from '../../hocs/with-bookstore-service/with-bookstore-service';
-import {getBooksData, getBooksLoading, getBooksError} from '../../store/reducers/book-list/book-list-selectors';
-import {fetchBooks, bookAddedToCart} from '../../store/actions/books-actions';
+import {getBooksData, getBooksLoading, getBooksError} from '../../store/reducers/book-list-reducer/book-list-selectors';
+import {fetchBooks} from '../../store/actions/book-list-actions/book-list-actions';
+import {bookAddedToCart} from '../../store/actions/shopping-cart-actions/shopping-cart-actions';
 
 import Spinner from '../../components/spinner/spinner';
 import ErrorIndicator from '../../components/error-indicator/error-indicator';
@@ -36,7 +37,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch, {getBooks}) => ({
-  fetchBooks: fetchBooks(dispatch, getBooks),
+  fetchBooks: () => dispatch(fetchBooks(getBooks)),
   onAddedToCart: (id) => dispatch(bookAddedToCart(id)),
 });
 

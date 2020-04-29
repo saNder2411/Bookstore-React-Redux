@@ -31,7 +31,7 @@ export default class BookstoreService {
       const data = this._createMockBooks(this._countBooks);
       setTimeout(() => {
 
-        if (Math.random() > 0.75) {
+        if (Math.random() > 0.80) {
           return reject(new Error(`Something bad happened`));
         }
 

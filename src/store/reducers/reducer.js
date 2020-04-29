@@ -1,5 +1,5 @@
-import updateBookList from './book-list/book-list';
-import updateShoppingCart from './shopping-cart/shopping-cart';
+import updateBookList from './book-list-reducer/book-list-reducer';
+import updateShoppingCart from './shopping-cart-reducer/shopping-cart-reducer';
 
 const initialState = {
   bookList: {
