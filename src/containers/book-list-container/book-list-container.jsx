@@ -17,9 +17,9 @@ const BookListContainer = ({fetchBooks, onAddedToCart, booksLoading, booksError,
   useEffect(() => fetchBooks(), [fetchBooks]);
 
   const bookListProps = {books, onAddedToCart};
-  const contentT = getContent(booksLoading, booksError, BookList, bookListProps);
+  const content = getContent(booksLoading, booksError, BookList, bookListProps);
 
-  return contentT;
+  return content;
 };
 
 const mapServiceMethodsToProps = ({getBooks}) => ({getBooks});
