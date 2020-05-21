@@ -17,7 +17,7 @@ const withBookstoreService = (mapMethodsToProps) => (Component) => {
         }
       </BookstoreServiceConsumer>
     );
-  }
+  };
 };
 
 export default withBookstoreService;

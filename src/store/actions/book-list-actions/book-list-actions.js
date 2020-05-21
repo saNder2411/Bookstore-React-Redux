@@ -8,6 +8,7 @@ const booksLoaded = (books) => ({type: ActionTypes.FETCH_BOOKS_SUCCESS, payload:
 const booksHasError = (error) => ({type: ActionTypes.FETCH_BOOKS_FAILURE, payload: error});
 
 export const fetchBooksOld = (dispatch, getBooks) => () => {
+
   dispatch(booksRequested());
   getBooks()
     .then((data) => dispatch(booksLoaded(data)))
@@ -15,6 +16,7 @@ export const fetchBooksOld = (dispatch, getBooks) => () => {
 };
 
 export const fetchBooks = (getBooks) => () => (dispatch) => {
+
   dispatch(booksRequested());
   getBooks()
     .then((data) => dispatch(booksLoaded(data)))

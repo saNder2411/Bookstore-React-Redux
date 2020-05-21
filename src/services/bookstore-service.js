@@ -17,13 +17,13 @@ export default class BookstoreService {
     let bookIndex = 0;
     const books = new Array(countBook)
       .fill(``)
-      .map((book, i) => {
-        book = this._createMockBook(bookIndex, ++i);
-        bookIndex = bookIndex === Titles.length - 1 ? 0 : ++bookIndex;
-    
+      .map((it, i) => {
+        const book = this._createMockBook(bookIndex, i + 1);
+        bookIndex = bookIndex === Titles.length - 1 ? 0 : bookIndex + 1;
+
         return book;
       });
-  
+
     return books;
   };
 
@@ -36,8 +36,9 @@ export default class BookstoreService {
           return reject(new Error(`Something bad happened`));
         }
 
-        resolve(data);
+        return resolve(data);
       }, 500);
     });
   };
+
 }

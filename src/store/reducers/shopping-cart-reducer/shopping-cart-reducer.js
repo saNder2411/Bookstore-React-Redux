@@ -10,7 +10,7 @@ const updateCartItems = (cartItems, item, idx) => {
     ];
   }
 
-  if(idx === -1) {
+  if (idx === -1) {
     return [item, ...cartItems];
   }
 
@@ -22,6 +22,7 @@ const updateCartItems = (cartItems, item, idx) => {
 };
 
 const updateCartItem = (book, item = {}, quantity) => {
+
   const {
     id = book.id,
     title = book.title,
@@ -38,6 +39,7 @@ const updateCartItem = (book, item = {}, quantity) => {
 };
 
 const updateOrderTotal = (cartItems) => {
+
   let countTotal = 0;
   cartItems.forEach(({total}) => {
     countTotal += total;
@@ -47,13 +49,14 @@ const updateOrderTotal = (cartItems) => {
 };
 
 const updateOrder = (state, bookId, quantity) => {
+
   const {bookList: {books}, shoppingCart: {cartItems}} = state;
   const book = books.find(({id}) => id === bookId);
   const itemIndex = cartItems.findIndex(({id}) => id === bookId);
   const item = cartItems[itemIndex];
   const newItem = updateCartItem(book, item, quantity);
   const newCartItems = updateCartItems(cartItems, newItem, itemIndex);
-  const newOrderTotal = updateOrderTotal(newCartItems)
+  const newOrderTotal = updateOrderTotal(newCartItems);
 
   return {
     cartItems: newCartItems,
@@ -62,6 +65,7 @@ const updateOrder = (state, bookId, quantity) => {
 };
 
 const updateShoppingCart = (state, action) => {
+
   switch (action.type) {
     case ActionTypes.BOOK_ADDED_TO_CART:
       return updateOrder(state, action.payload, 1);

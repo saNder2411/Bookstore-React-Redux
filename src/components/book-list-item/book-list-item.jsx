@@ -3,6 +3,7 @@ import './book-list-item.css';
 
 
 const BookListItem = ({book, onAddedToCart}) => {
+
   const {title, author, price, coverImage} = book;
 
   return (
@@ -15,10 +16,14 @@ const BookListItem = ({book, onAddedToCart}) => {
           {title}
         </h6>
         <div className="book-author">{author}</div>
-        <div className="book-price">${price}</div>
+        <div className="book-price">
+          $
+          {price}
+        </div>
         <button
           onClick={onAddedToCart}
-          className="btn btn-info add-to-cart">
+          className="btn btn-info add-to-cart"
+          type="button">
           Add to cart
         </button>
       </div>

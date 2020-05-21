@@ -6,10 +6,9 @@ import withBookstoreService from '../../hocs/with-bookstore-service/with-booksto
 import {getBooksData, getBooksLoading, getBooksError} from '../../store/reducers/book-list-reducer/book-list-selectors';
 import {fetchBooks} from '../../store/actions/book-list-actions/book-list-actions';
 import {bookAddedToCart} from '../../store/actions/shopping-cart-actions/shopping-cart-actions';
+import {compose, getContent} from '../../utils/utils';
 
 import BookList from '../../components/book-list/book-list';
-
-import {compose, getContent} from '../../utils/utils';
 
 
 const BookListContainer = ({fetchBooks, onAddedToCart, booksLoading, booksError, books}) => {
@@ -40,5 +39,5 @@ const mapDispatchToProps = (dispatch, {getBooks}) => {
 
 export default compose(
   withBookstoreService(mapServiceMethodsToProps),
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps),
 )(BookListContainer);

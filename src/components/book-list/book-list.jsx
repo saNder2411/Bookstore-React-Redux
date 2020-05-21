@@ -1,6 +1,6 @@
 import React from 'react';
-import BookListItem from '../book-list-item/book-list-item';
 import './book-list.css';
+import BookListItem from '../book-list-item/book-list-item';
 
 
 const BookList = ({books, onAddedToCart}) => {
@@ -12,7 +12,7 @@ const BookList = ({books, onAddedToCart}) => {
           key={book.id}
           book={book}
           onAddedToCart={() => onAddedToCart(book.id)} />
-        ))}
+      ))}
     </ul>
   );
 };
